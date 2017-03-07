@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/statics/css/style.css">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<script src="/statics/js/vue.js"></script>
+<script src="/statics/js/vue.pretty-bytes.js"></script>
+<script src="/statics/js/vue-router.min.js"></script>
+<script src="/statics/js/vue-validator.min.js"></script>
+<script src="/statics/js/vue.file-upload.js"></script>
+<script src="/statics/js/underscore-min.js"></script>
+<script src="/statics/js/moment-with-locales.js"></script>
+
+<script src="/statics/js/bigUpload.js"></script>
+
+
+
+<script>
+  var custombigUploader = new BigUpload({
+    scriptPath: "vender/bigUpload.php"
+  });
+  function customUpload() {
+    custombigUploader.fire();
+  }
+  function customAbort() {
+    custombigUploader.abortFileUpload();
+  }
+</script>
+
+
+<div class="bigUpload">
+  <div class="bigUploadContainer">
+    <h1>custom zip</h1>
+    <form>
+      <input type="file" class="bigUploadFile" id="bigUploadFile" name="bigUploadFile" file-name="custom.zip" accept="application/zip">
+      <input type="button" class="bigUploadButton" value="Start Upload" id="bigUploadSubmit" onclick="customUpload()" />
+      <input type="button" class="bigUploadButton bigUploadAbort" value="Cancel" onclick="customAbort()" />
+    </form>
+    <div class="bigUploadProgressBarContainer" id="bigUploadProgressBarContainer">
+      <div class="bigUploadProgressBarFilled" id="bigUploadProgressBarFilled">
+      </div>
+    </div>
+    <div id="bigUploadTimeRemaining"></div>
+    <div id="bigUploadResponse"></div>
+  </div>
+</div>
+
+
+<script>
+  var scaffoldUploader = new BigUpload({
+    scriptPath: "vender/bigUpload.php",
+    'inputField': 'bigUploadFile2',
+
+    //The id of the progress bar
+    //Width of this element will change based on progress
+    //Content of this element will display a percentage
+    //See bigUpload.progressUpdate() to change this code
+    'progressBarField': 'bigUploadProgressBarFilled2',
+
+    //The id of the time remaining field
+    //Content of this element will display the estimated time remaining for the upload
+    //See bigUpload.progressUpdate() to change this code
+    'timeRemainingField': 'bigUploadTimeRemaining2',
+
+    //The id of the text response field
+    //Content of this element will display the response from the server on success or error
+    'responseField': 'bigUploadResponse2',
+
+    //The id of the submit button
+    //This is then changed to become the pause/resume button based on the status of the upload
+    'submitButton': 'bigUploadSubmit2'
+  });
+  function scaffoldUpload() {
+    scaffoldUploader.fire();
+  }
+  function scaffoldAbort() {
+    scaffoldUploader.abortFileUpload();
+  }
+</script>
+
+
+<div class="bigUpload">
+  <div class="bigUploadContainer">
+    <h1>scaffold zip</h1>
+    <form>
+      <input type="file" class="bigUploadFile" id="bigUploadFile2" name="bigUploadFile" file-name="scaffold.zip" accept="application/zip">
+      <input type="button" class="bigUploadButton" value="Start Upload" id="bigUploadSubmit2" onclick="scaffoldUpload()" />
+      <input type="button" class="bigUploadButton bigUploadAbort" value="Cancel" onclick="scaffoldAbort()" />
+    </form>
+    <div class="bigUploadProgressBarContainer" id="bigUploadProgressBarContainer">
+      <div class="bigUploadProgressBarFilled" id="bigUploadProgressBarFilled2">
+      </div>
+    </div>
+    <div id="bigUploadTimeRemaining2"></div>
+    <div id="bigUploadResponse2"></div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
