@@ -9,9 +9,11 @@
 ini_set('max_execution_time', '0');
 ini_set('memory_limit','0');
 
+require "config.php";
+
 $time = time();
 
-$bbcPath = __DIR__ . "/bbc";
+
 $backupPath = __DIR__ . "/backup/" . $time;
 $workspacePath = __DIR__ . "/files";
 
