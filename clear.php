@@ -22,7 +22,9 @@ function deleteAll($path) {
     }
 }
 $path = __DIR__."/files";
-deleteAll($path);
+if (file_exists($path)) {
+    deleteAll($path);
+}
 
 $path = __DIR__."/files/tmp";
 mkdir($path,0755,true);
