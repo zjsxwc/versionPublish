@@ -179,10 +179,11 @@ function BigUpload (settings) {
 		var start = chunk * this.settings.chunkSize;
 		var stop = start + this.settings.chunkSize;
 
-		//Initialize a new FileReader object
-		var reader = new FileReader();
+		//Slice the file into the desired chunk
+		//This is the core of the script. Everything else is just fluff.
+		var blob = this.uploadData.file.slice(start, stop);
 
-		reader.onloadend = function(evt) {
+		function xhrFileSend (evt) {
 
 			//Build the AJAX request
 			//
@@ -225,19 +226,10 @@ function BigUpload (settings) {
 
 			//Send the file chunk
 			xhr.send(blob);
-		};
-
-		//checks if browser is Internet Explorer (IE FileReader doesn't have the readAsBinaryString method) 
-		var isIE = ((navigator.userAgent.indexOf("MSIE") != -1) || (navigator.userAgent.indexOf("Trident") != -1));
-		
-		//Slice the file into the desired chunk
-		//This is the core of the script. Everything else is just fluff.
-		var blob = this.uploadData.file.slice(start, stop);
-		if(isIE){
-			reader.readAsArrayBuffer(blob);
-		} else {
-			reader.readAsBinaryString(blob);
 		}
+		xhrFileSend();
+
+
 	};
 
 	//This method is for whatever housekeeping work needs to be completed after the file is finished uploading.
