@@ -151,7 +151,7 @@ class BigUpload
 			$fsize = @filesize($tmpPath);
 			if ($fsize === false) {
 				return array(
-					'errorStatus' => 553,
+					'errorStatus' => 5531,
 					'errorText' => 'File part access error.'
 				);
 			}
@@ -177,7 +177,7 @@ class BigUpload
 		$handle = @fopen($tmpPath, 'a');
 		if ($handle === false) {
 			return array(
-				'errorStatus' => 553,
+				'errorStatus' => 5532,
 				'errorText' => 'File part access error.'
 			);
 		}
@@ -260,7 +260,7 @@ class BigUpload
 		$fsize = @filesize($tempName);
 		if ($fsize === false) {
 			return array(
-				'errorStatus' => 553,
+				'errorStatus' => 5533,
 				'errorText' => 'File part access error.'
 			);
 		}
