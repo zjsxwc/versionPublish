@@ -41,6 +41,9 @@ try{
         }
 
         rename($bbcPath . "/custom", $backupPath . "/custom");
+
+        sleep(10);
+
         rename($workspacePath . "/".$addDir, $bbcPath . "/custom");
 
         echo $workspacePath . "/".$addDir."<br>";
@@ -73,6 +76,9 @@ try{
 
 
         rename($bbcPath . "/scaffold", $backupPath . "/scaffold");
+
+        sleep(10);
+
         rename($workspacePath . "/".$addDir, $bbcPath . "/scaffold");
 
         echo $workspacePath . "/".$addDir."<br>";
