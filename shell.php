@@ -6,7 +6,7 @@
  * Time: 4:41 PM
  */
 ini_set('max_execution_time', '0');
-ini_set('memory_limit','80m');
+ini_set('memory_limit','1080m');
 
 include_once __DIR__.'/vender/ShellExecuter.php';
 
